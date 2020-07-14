@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: desafio-k8s
+  labels:
+    app: desafio-k8s
+spec:
+  selector:
+    matchLabels:
+      app: desafio-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: desafio-k8s
+    spec:
+      containers:
+      - name: go-webserver
+        image: jcobarreto/go-webserver:v1
+        ports:
+        - containerPort: 8000
